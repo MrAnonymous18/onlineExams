@@ -19,7 +19,7 @@
             }
             elseif ($chk_password[3] == "User"){
                 $_SESSION['user'] = $fetch_user;
-                header("Location:../index.php");
+                header("Location:../user/index.php");
             }
             else{
                 $_SESSION['flash'] = "You are not authorized";
@@ -30,6 +30,8 @@
         }
         else{
             $_SESSION['flash'] = "Username or password not matched";
+            header("Location:../login.php");
+
         }
     }
 

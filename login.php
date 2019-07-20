@@ -15,6 +15,7 @@ if(isset($_SESSION['name'])){
                     <h4>Login</h4>
                 </div>
                 <div class="card-body" style="border: 1px solid black;padding:20px;">
+                    
                     <form action="actions/action_login.php" method="post">
                         <div class="form-group">
                             <label for="username">Username or Email : </label>

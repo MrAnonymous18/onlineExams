@@ -12,4 +12,14 @@ $cd = date('Y-m-d');
 
         header("Location:../addQuestion.php");
     }
+
+    if(isset($_POST['updateQuestion'])){
+        $query = mysqli_query($db,"update questions set type='$_POST[type]', question='$_POST[question]',
+                                        option_a='$_POST[a]', option_b='$_POST[b]', option_c='$_POST[c]', option_d='$_POST[d]',
+                                        answer='$_POST[answer]' where id='$_POST[id]'");
+
+        $_SESSION['flash'] = "Question update successfully";
+
+        header("Location:../view_questions.php");
+    }
 ?>

@@ -1,10 +1,7 @@
 <?php
 include('Database/DbConnection.php');
 session_start();
-//if($_SESSION['role']!="User"){
-//    $_SESSION['error'] = "You are not authorized to view this page";
-//    header("Location:error.php");
-//}
+
 $name="";
 
 if(isset($_SESSION['name'])){
@@ -31,14 +28,6 @@ $name = $_SESSION['name'];
                 <a href="index.php" class="nav-item nav-link active">Home</a>
                 <a href="about.php" class="nav-item nav-link">About</a>
                 <a href="contact_us.php" class="nav-item nav-link">Contact Us</a>
-<!--                <div class="nav-item dropdown">-->
-<!--                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Messages</a>-->
-<!--                    <div class="dropdown-menu">-->
-<!--                        <a href="#" class="dropdown-item">Inbox</a>-->
-<!--                        <a href="#" class="dropdown-item">Sent</a>-->
-<!--                        <a href="#" class="dropdown-item">Drafts</a>-->
-<!--                    </div>-->
-<!--                </div>-->
             </div>
             <div class="navbar-nav mr-2">
                 <div class="navbar-nav mr-2">

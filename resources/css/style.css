@@ -3,3 +3,11 @@
     background-color: #343A40;
 
 }
+.image_btn{
+    padding:10px 20px;
+    background-color: aliceblue;
+    border-radius: 10px;
+    width:100%;
+    font-size: 18px ;
+    font-weight: 700;
+}

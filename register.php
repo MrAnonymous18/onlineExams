@@ -37,7 +37,7 @@ if(isset($_SESSION['name'])){
                             </div>
                             <div class="form-group">
                                 <label for="conPassword">Confirm Password : </label>
-                                <input type="text" name="conPassword" id="conPassword" class="form-control">
+                                <input type="password" name="conPassword" id="conPassword" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="dob">Date of birth : </label>
