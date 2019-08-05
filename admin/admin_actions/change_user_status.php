@@ -1,6 +1,8 @@
 <?php
 include('../../Database/DbConnection.php');
 session_start();
+include ('admin_validate.php');
+
 $value="";
 $id="";
 if(isset($_GET)){

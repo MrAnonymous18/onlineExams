@@ -1,6 +1,8 @@
 <?php
-session_start();
 include('../../Database/DbConnection.php');
+session_start();
+include ('admin_validate.php');
+
 $status = 'Enabled';
 $cd = date('Y-m-d');
 

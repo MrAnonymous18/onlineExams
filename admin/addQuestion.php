@@ -34,7 +34,7 @@ $fetch_category_query = mysqli_query($db,"Select * from categories ORDER BY name
                                 <?php
                                 while($category_result = mysqli_fetch_array($fetch_category_query)){
                                 ?>
-                                    <option value="<?php echo $category_result[1]?>"><?php echo $category_result[1]?></option>
+                                    <option value="<?php echo $category_result[0]?>"><?php echo $category_result[1]?></option>
                                 <?php
                                 }
                                 ?>

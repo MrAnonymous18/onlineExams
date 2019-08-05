@@ -9,7 +9,7 @@ $name = "";
 
 if(isset($_SESSION['user'])){
     $name = $_SESSION['user'][6];
-}
+} 
 ?>
 
 <!Doctype HTML>
@@ -19,6 +19,7 @@ if(isset($_SESSION['user'])){
     <link rel="stylesheet" href="../resources/css/bootstrap.min.css">
 <!--    <link rel="stylesheet" href="resources/css/bootstrap_3.min.css">-->
     <link rel="stylesheet" href="../resources/css/style.css">
+<!--    <link rel="stylesheet" href="../resources/css/pagination.css">-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.8/raphael.min.js">
@@ -39,6 +40,7 @@ if(isset($_SESSION['user'])){
                 <a href="view_questions.php" class="nav-item nav-link">View Question</a>
                 <a href="addCategory.php" class="nav-item nav-link">Add Category</a>
                 <a href="users_list.php" class="nav-item nav-link">User List</a>
+                <a href="contact_queries_list.php" class="nav-item nav-link">Contact Queries</a>
             </div>
             <div class="navbar-nav mr-2">
                 <?php
@@ -54,7 +56,7 @@ if(isset($_SESSION['user'])){
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><?php echo $name ?></a>
                     <div class="dropdown-menu" style="left: -30px">
                         <a href="#" class="dropdown-item">My Profile</a>
-                        <a href="#" class="dropdown-item">Sent</a>
+                        <a href="view_stats.php" class="dropdown-item">View Stats</a>
                         <a href="change_password.php" class="dropdown-item">Change Password</a>
                         <a href="edit_details.php" class="dropdown-item">Edit details</a>
                         <a href="../logout.php" class="dropdown-item">Logout</a>

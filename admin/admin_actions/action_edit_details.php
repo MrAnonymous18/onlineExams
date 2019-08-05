@@ -1,6 +1,7 @@
 <?php
 include('../../Database/DbConnection.php');
 session_start();
+include ('admin_validate.php');
 
 if(isset($_SESSION['user'])){
     $data = $_SESSION['user'];

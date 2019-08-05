@@ -1,6 +1,9 @@
 <?php
 include('header.php');
-$filter = "All";
+if(isset($_SESSION['ft']))
+	$filter=$_SESSION['ft'];
+else
+	$filter = "All";
 $cond ="";
 
 $fetch_categories = mysqli_query($db,"select * from categories ORDER BY name");
@@ -8,36 +11,38 @@ $fetch_categories = mysqli_query($db,"select * from categories ORDER BY name");
 if($_POST){
 
     $filter = $_POST['filter_status'];
-
-    if($filter == 'All'){
+    $_SESSION['ft']=$filter;
+    $page = 1;
+}
+else
+{
+    if(!isset($_GET['page'])){
+        $page = 1;
+    }
+    else{
+        $page = $_GET['page'];
+    }
+}
+if($filter == 'All'){
         $cond="";
     }
     else{
         $cond = "where type='".$filter."'";
-
     }
-}
+
+
 //select * from questions where type='$filter';
 $sql="select * from questions ".$cond;
-
 $query1 = mysqli_query($db, $sql) or die('Error - : '.mysqli_error($db));
-$results_per_page = 5;
+$per_page = 10;
 
 
 $number_of_results = mysqli_num_rows($query1);
-$number_of_pages = ceil($number_of_results/$results_per_page);
+$number_of_pages = ceil($number_of_results/$per_page);
 
+$start = ($page-1)*$per_page;
 
-if(!isset($_GET['page'])){
-    $page = 1;
-}
-else{
-    $page = $_GET['page'];
-}
-
-$this_page_first_result = ($page-1)*$results_per_page;
-
-$query2 = mysqli_query($db,$sql." limit ".$this_page_first_result.','.$results_per_page) or die('Error - : '.mysqli_error($db));
+$query2 = mysqli_query($db,$sql." limit ".$start.','.$per_page) or die('Error - : '.mysqli_error($db));
 ?>
 <div class="container">
     <div class="row">
@@ -66,6 +71,7 @@ $query2 = mysqli_query($db,$sql." limit ".$this_page_first_result.','.$results_p
                 <th> </th>
                 </thead>
                 <?php
+                //echo $query2;
                 while($question_result = mysqli_fetch_array($query2)){
                     ?>
                     <tr>
@@ -83,10 +89,10 @@ $query2 = mysqli_query($db,$sql." limit ".$this_page_first_result.','.$results_p
 
             <ul class="pagination">
                 <?php
-                for($page=1;$page<=$number_of_pages;$page++)
+                for($p=$page;$p<=$number_of_pages;$p++)
                 {
                     ?>
-                    <li class="page-item"><a class="page-link" href="view_questions.php?page=<?php echo $page?>"><?php echo $page ?></a></li>
+                    <li class="page-item"><a class="page-link" href="view_questions.php?page=<?php echo $p?>"><?php echo$p ?></a></li>
                     <?php
                 }
                 ?>

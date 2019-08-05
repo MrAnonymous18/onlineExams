@@ -9,4 +9,5 @@ if(isset($_POST['addCategory'])){
     header("Location:../addCategory.php");
 }
 
+
 ?>

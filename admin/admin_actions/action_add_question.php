@@ -1,6 +1,8 @@
 <?php
 include('../../Database/DbConnection.php');
 session_start();
+include ('admin_validate.php');
+
 $cd = date('Y-m-d');
 
     if(isset($_POST['addQuestion'])){
